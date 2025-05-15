@@ -39,30 +39,32 @@
 
         <!-- FORMULÁRIO DE CADASTRO -->
         <h3>Ou cadastre-se</h3>
-        <form id="registerForm">
+        <form id="cadastroForm">
           <input
             type="text"
-            id="registerUsername"
+            id="cadastroUsuario"
             placeholder="Nome de Usuário"
             required
           />
-          <input type="email" id="registerEmail" placeholder="Email" required />
+          <input type="email" id="cadastroEmail" placeholder="Email" required />
           <input
             type="password"
-            id="registerPassword"
+            id="cadastroSenha"
             placeholder="Senha"
             required
           />
           <button type="submit" class="btn">Cadastrar</button>
-          <p id="registerSuccess" class="success-msg"></p>
+          <p id="cadastroSucesso" class="success-msg"></p>
+          <p id="cadastroError" class="error-msg"></p>
         </form>
       </div>
     </div>
 
     <!-- 1) Cria usuário de teste (executa apenas uma vez) -->
-    <script src="../js/usuarios.js"></script>
+    <!--<script src="../js/usuarios.js"></script>-->
 
     <!-- 2) Lida com login, cadastro e redirecionamento -->
-    <script src="../js/login.js"></script>
+    <!--<script src="../js/login.js"></script> -->
+    <script src="../js/script.js"></script>
   </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coleitura</title>
+    <link rel="icon" href="../imagens/favicon.png" type="image/png"/>
     <link rel="stylesheet" href="../estilos/style.css" />
   </head>
   <body>
@@ -12,20 +13,35 @@
         <h1>Coleitura</h1>
         <nav>
           <ul>
-            <li><a href="#">Início</a></li>
+            <li><a href="#index.html">Início</a></li>
             <li><a href="#grupos">Grupos</a></li>
             <li><a href="#livros">Livros</a></li>
             <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#" id="abrirModal">Perfil</a></li>
             <li><a href="login.html">Sair</a></li>
           </ul>
         </nav>
-       <!-- <div
-          id="logoutArea"
-          style="display: none; margin-top: 0.5rem; text-align: right"
-        >
-          <button onclick="logout()" class="btn">Sair</button>
-        </div>-->
       </div>
+
+        <div id="meuModal" class="modal">
+        <div class="modal-conteudo">
+        <span class="fechar">&times;</span>
+        <h2 id="nomeUsuarioModal"></h2>
+        
+        <div class="foto-container">
+          <img id="fotoPreview" src="default.jpg" alt="Foto do usuário">
+          <input type="file" id="fotoInput" accept="image/*" />
+        </div>
+
+        <form id="editarUsuarioForm">
+          <input type="email" id="emailEditar" placeholder="Email" required />
+          <input type="password" id="senhaEditar" placeholder="Senha" required />
+          <button type="submit">Salvar alterações</button>
+        </form>
+      </div>
+      </div>
+
+
     </header>
 
     <main class="container">
@@ -64,6 +80,57 @@
           colaborativa e divertida.
         </p>
       </section>
+
+      <section id="juliaCasoUso" class="section" style="display: none;">
+        <h3>Grupo: Neuromancer</h3>
+        <button onclick="voltarParaInicio()">← Voltar</button>
+
+        <div id="detalhesGrupo">
+          <p>Você entrou no grupo de leitura do livro <strong>Neuromancer</strong>.</p>
+
+        <div id="pdfLivro">
+          <h4>Livro: Neuromancer (PDF)</h4>
+          <div class="pdf-container">
+
+          <div style="display: flex; justify-content: center; align-items: center; padding: 40px; background-color: #f0f0f0; min-height: 100vh;">
+            <iframe 
+              src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=19C2kBkCgu3AaH7J8cw1G_aLDYWFbSOaW&export=download" 
+              width="800" 
+              height="600" 
+              style="border: none; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); border-radius: 8px;">
+            </iframe>
+          </div>
+
+        </div>
+        </div>
+
+          <button id="spoilerToggle" onclick="toggleSpoiler()">🔒 Spoiler: Desativado</button>
+
+          <div id="comentariosGrupo">
+            <h4>Comentários Anteriores</h4>
+            <ul></ul> <!-- nao apagar, comentarios vao aparecer aqui -->
+          </div>
+
+          <div id="anotacoesUsuario">
+            <h4>Suas Anotações</h4>
+            <textarea placeholder="Digite aqui suas anotações..."></textarea>
+            <p>Essas anotações são visíveis para o grupo.</p>
+          </div>
+
+          <div id="progressoLeitura">
+            <h4>Meta da Semana</h4>
+            <p>Capítulo 1 a 3 — 75% concluído</p>
+            <button onclick="marcarComoConcluido()">✅ Marcar como concluído</button>
+          </div>
+
+          <div id="forumGrupo">
+            <h4>Fórum de Discussão</h4>
+            <textarea placeholder="Comente suas teorias e dúvidas..."></textarea>
+            <button>💬 Enviar</button>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer>
@@ -79,22 +146,6 @@
       </div>
     </footer>
     
-
-    <!-- Tire o SCRIPT do comentário para testar o login, consegui fazer ele funcionar mas não ele direcionar para o index como deveria ASS:SOFIA REAME-->
-
-    <!--<script>
-      // auth inline: protege rota e exibe logout
-      const user = JSON.parse(localStorage.getItem("usuarioLogado"));
-      if (!user) {
-        window.location.href = "login.html";
-      } else {
-        document.getElementById("logoutArea").style.display = "block";
-      }
-      function logout() {
-        localStorage.removeItem("usuarioLogado");
-        window.location.href = "login.html";
-      }
-    </script>-->
     <script src="../js/script.js"></script>
   </body>
 </html>

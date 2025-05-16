@@ -13,8 +13,111 @@
         <h1>Coleitura</h1>
         <nav>
           <ul>
-            <li><a href="#index.html">Início</a></li>
-            <li><a href="#grupos">Grupos</a></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="grupo.html">Grupos</a></li>
+            <li><a href="#livros">Livros</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#" id="abrirModal">Perfil</a></li>
+            <li><a href="login.html">Sair</a></li>
+          </ul>
+        </nav>
+      </div>
+
+        <div id="meuModal" class="modal">
+        <div class="modal-conteudo">
+        <span class="fechar">&times;</span>
+        <h2 id="nomeUsuarioModal"></h2>
+        
+        <div class="foto-container">
+          <img id="fotoPreview" src="../imagens/imagem-padrao.webp" alt="Foto do usuário">
+          <input type="file" id="fotoInput" accept="image/*" />
+        </div>
+
+        <form id="editarUsuarioForm">
+          <input type="email" id="emailEditar" placeholder="Email" required />
+          <input type="password" id="senhaEditar" placeholder="Senha" required />
+          <button type="submit">Salvar alterações</button>
+        </form>
+      </div>
+      </div>
+
+
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h2>Bem-vindo ao seu clube do livro digital!</h2>
+        <img src="../imagens/leitora.png" alt="Leitora" class="ilustracao" />
+        <p>
+          Participe de grupos de leitura, comente, marque e discuta cada página
+          com quem está lendo com você.
+        </p>
+      </section>
+
+      <section id="grupos" class="section">
+        <h3>Grupos de Leitura</h3>
+        <p>
+          Crie ou participe de grupos para discutir seus livros favoritos.
+          Moderação ativa e alertas de spoiler garantem uma boa experiência para
+          todos.
+        </p>
+        <button src="" class="btn">🔍 Explorar Grupos</button>
+      </section>
+
+      <section id="leitura" class="section">
+        <h3>Seus livros</h3>
+        <p>
+          Leia o mesmo e-book com outras pessoas. Visualize marcações e
+          comentários em tempo real.
+        </p>
+        <button class="btn">🔍 Explorar Grupos</button>
+      </section>
+
+      <section id="sobre" class="section">
+        <h3>Sobre o Projeto</h3>
+        <p>
+          Uma plataforma inovadora para tornar a leitura mais social,
+          colaborativa e divertida.
+        </p>
+      </section>
+
+
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Coleitura</p>
+        <div class="footer-nav">
+          <div>👥<br />Amizades</div>
+          <div>🔄<br />Conectar</div>
+          <div>🏠<br />Início</div>
+          <div>⭐<br />Favoritos</div>
+          <div>💬<br />Mensagens</div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="../js/script.js"></script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coleitura</title>
+    <link rel="icon" href="../imagens/favicon.png" type="image/png"/>
+    <link rel="stylesheet" href="../estilos/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Coleitura</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="grupos">Grupos</a></li>
             <li><a href="#livros">Livros</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#" id="abrirModal">Perfil</a></li>

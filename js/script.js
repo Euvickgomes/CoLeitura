@@ -203,9 +203,30 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("#sobre").style.display = "none";
 
       document.querySelector("#juliaCasoUso").style.display = "block";
+      window.location.href='grupo.html';
+      voltarParaInicio();
       carregarComentarios();
     });
   }
+
+let iframe = document.getElementById("iframePDF");
+
+  window.entrarGrupo = function(nomeGrupo) {
+    
+    document.getElementById("juliaCasoUso").style.display = "block";
+
+    if(nomeGrupo === "Neuromancer") {
+      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=19C2kBkCgu3AaH7J8cw1G_aLDYWFbSOaW&export=download";
+      document.getElementById("tituloPDF").innerText = "Neuromancer";
+    } else if(nomeGrupo === "1984") {
+      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1vX0g2r7x4q5a3j6k8J9Qe1m4Zc5f3GzE&export=download";
+      document.getElementById("tituloPDF").innerText = "1984";
+    } else if(nomeGrupo === "Duna") {
+      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1vX0g2r7x4q5a3j6k8J9Qe1m4Zc5f3GzE&export=download";
+      document.getElementById("tituloPDF").innerText = "Duna";
+    }
+
+  };
 
   // voltar
   window.voltarParaInicio = function () {

@@ -17,6 +17,7 @@
             <li><a href="grupo.html">Grupos</a></li>
             <li><a href="#livros">Livros</a></li>
             <li><a href="#sobre">Sobre</a></li>
+            <li><a href="form.html">Criar grupo</a></li>
             <li><a href="#" id="abrirModal">Perfil</a></li>
             <li><a href="login.html">Sair</a></li>
           </ul>
@@ -29,7 +30,7 @@
         <h2 id="nomeUsuarioModal"></h2>
         
         <div class="foto-container">
-          <img id="fotoPreview" src="../imagens/imagem-padrao.webp" alt="Foto do usuário">
+          <img id="fotoPreview" src="" alt="Foto do usuário">
           <input type="file" id="fotoInput" accept="image/*" />
         </div>
 
@@ -40,8 +41,6 @@
         </form>
       </div>
       </div>
-
-
     </header>
 
     <main class="container">
@@ -61,110 +60,7 @@
           Moderação ativa e alertas de spoiler garantem uma boa experiência para
           todos.
         </p>
-        <button src="" class="btn">🔍 Explorar Grupos</button>
-      </section>
-
-      <section id="leitura" class="section">
-        <h3>Seus livros</h3>
-        <p>
-          Leia o mesmo e-book com outras pessoas. Visualize marcações e
-          comentários em tempo real.
-        </p>
-        <button class="btn">🔍 Explorar Grupos</button>
-      </section>
-
-      <section id="sobre" class="section">
-        <h3>Sobre o Projeto</h3>
-        <p>
-          Uma plataforma inovadora para tornar a leitura mais social,
-          colaborativa e divertida.
-        </p>
-      </section>
-
-
-    </main>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Coleitura</p>
-        <div class="footer-nav">
-          <div>👥<br />Amizades</div>
-          <div>🔄<br />Conectar</div>
-          <div>🏠<br />Início</div>
-          <div>⭐<br />Favoritos</div>
-          <div>💬<br />Mensagens</div>
-        </div>
-      </div>
-    </footer>
-    
-    <script src="../js/script.js"></script>
-  </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coleitura</title>
-    <link rel="icon" href="../imagens/favicon.png" type="image/png"/>
-    <link rel="stylesheet" href="../estilos/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>Coleitura</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="grupos">Grupos</a></li>
-            <li><a href="#livros">Livros</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#" id="abrirModal">Perfil</a></li>
-            <li><a href="login.html">Sair</a></li>
-          </ul>
-        </nav>
-      </div>
-
-        <div id="meuModal" class="modal">
-        <div class="modal-conteudo">
-        <span class="fechar">&times;</span>
-        <h2 id="nomeUsuarioModal"></h2>
-        
-        <div class="foto-container">
-          <img id="fotoPreview" src="default.jpg" alt="Foto do usuário">
-          <input type="file" id="fotoInput" accept="image/*" />
-        </div>
-
-        <form id="editarUsuarioForm">
-          <input type="email" id="emailEditar" placeholder="Email" required />
-          <input type="password" id="senhaEditar" placeholder="Senha" required />
-          <button type="submit">Salvar alterações</button>
-        </form>
-      </div>
-      </div>
-
-
-    </header>
-
-    <main class="container">
-      <section class="hero">
-        <h2>Bem-vindo ao seu clube do livro digital!</h2>
-        <img src="../imagens/leitora.png" alt="Leitora" class="ilustracao" />
-        <p>
-          Participe de grupos de leitura, comente, marque e discuta cada página
-          com quem está lendo com você.
-        </p>
-      </section>
-
-      <section id="grupos" class="section">
-        <h3>Grupos de Leitura</h3>
-        <p>
-          Crie ou participe de grupos para discutir seus livros favoritos.
-          Moderação ativa e alertas de spoiler garantem uma boa experiência para
-          todos.
-        </p>
-        <button src="" class="btn">🔍 Explorar Grupos</button>
+        <button id="testeBotao" href="grupo.html" class="btn">🔍 Explorar Grupos</button>
       </section>
 
       <section id="leitura" class="section">
@@ -182,56 +78,6 @@
           Uma plataforma inovadora para tornar a leitura mais social,
           colaborativa e divertida.
         </p>
-      </section>
-
-      <section id="juliaCasoUso" class="section" style="display: none;">
-        <h3>Grupo: Neuromancer</h3>
-        <button onclick="voltarParaInicio()">← Voltar</button>
-
-        <div id="detalhesGrupo">
-          <p>Você entrou no grupo de leitura do livro <strong>Neuromancer</strong>.</p>
-
-        <div id="pdfLivro">
-          <h4>Livro: Neuromancer (PDF)</h4>
-          <div class="pdf-container">
-
-          <div style="display: flex; justify-content: center; align-items: center; padding: 40px; background-color: #f0f0f0; min-height: 100vh;">
-            <iframe 
-              src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=19C2kBkCgu3AaH7J8cw1G_aLDYWFbSOaW&export=download" 
-              width="800" 
-              height="600" 
-              style="border: none; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); border-radius: 8px;">
-            </iframe>
-          </div>
-
-        </div>
-        </div>
-
-          <button id="spoilerToggle" onclick="toggleSpoiler()">🔒 Spoiler: Desativado</button>
-
-          <div id="comentariosGrupo">
-            <h4>Comentários Anteriores</h4>
-            <ul></ul> <!-- nao apagar, comentarios vao aparecer aqui -->
-          </div>
-
-          <div id="anotacoesUsuario">
-            <h4>Suas Anotações</h4>
-            <textarea placeholder="Digite aqui suas anotações..."></textarea>
-            <p>Essas anotações são visíveis para o grupo.</p>
-          </div>
-
-          <div id="progressoLeitura">
-            <h4>Meta da Semana</h4>
-            <p>Capítulo 1 a 3 — 75% concluído</p>
-            <button onclick="marcarComoConcluido()">✅ Marcar como concluído</button>
-          </div>
-
-          <div id="forumGrupo">
-            <h4>Fórum de Discussão</h4>
-            <textarea placeholder="Comente suas teorias e dúvidas..."></textarea>
-            <button>💬 Enviar</button>
-          </div>
-        </div>
       </section>
 
     </main>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coleitura</title>
+  <link rel="icon" href="../imagens/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="../estilos/style.css" />
+  <link rel="stylesheet" href="../estilos/form.css" />
+</head>
+
+<body>
+  <header>
+    <div class="topoForm">
+      <a href="index.html"><img src="../imagens/seta.png" class="voltar"></a>
+      <h1 class="titulo">Coleitura</h1>
+    </div>
+  </header>
+
+  <main>
+
+
+    <form id="form">
+      <h2>Formulário Criar Grupo</h2>
+
+      <label for="nomeGrupo">Nome do grupo</label><br>
+      <input type="text" name="nomeGrupo" id="nomeGrupo" required><br><br>
+
+      <label for="linkPdf">Link do PDF</label><br>
+      <input type="url" name="linkPdf" id="linkPdf" required placeholder="https://exemplo.com/livro.pdf"><br><br>
+
+      <label for="livroFav">Nome do livro</label><br>
+      <input type="text" name="nomeLivro" id="nomeLivro" required><br><br>
+
+      <label for="descricao">Descrição do grupo</label><br>
+      <textarea name="descricao" id="descricao" rows="4" required></textarea><br><br>
+
+      <label for="genero">Gênero do livro</label><br>
+      <select name="genero" id="genero" required>
+        <option value="">Selecione</option>
+        <option>Romance</option>
+        <option>Terror</option>
+        <option>Ficção</option>
+        <option>Aventura</option>
+        <option>Fantasia</option>
+        <option>Biografia</option>
+        <option>Suspense</option>
+        <option>Outro</option>
+      </select><br><br>
+
+      <label for="visibilidade">Visibilidade</label><br>
+      <select name="visibilidade" id="visibilidade" required>
+        <option value="">Selecione</option>
+        <option>Público</option>
+        <option>Privado</option>
+      </select><br><br>
+
+      <button type="submit">Criar</button>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Coleitura</p>
+      <div class="footer-nav">
+        <div>👥<br />Amizades</div>
+        <div>🔄<br />Conectar</div>
+        <div>🏠<br />Início</div>
+        <div>⭐<br />Favoritos</div>
+        <div>💬<br />Mensagens</div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../js/script.js"></script>
+  <script src="../js/form.js"></script>
+
+</body>
+
+</html>

@@ -188,23 +188,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  let explorarBtn = document.querySelector("#grupos .btn");
+  let explorarBtn = document.getElementById("testeBotao");
   let spoilerAtivado = false;
 
-  let comentarioTextarea = document.querySelector("#forumGrupo textarea");
-  let enviarComentarioBtn = document.querySelector("#forumGrupo button");
   let listaComentarios = document.querySelector("#comentariosGrupo ul");
 
   if (explorarBtn) {
     explorarBtn.addEventListener("click", () => {
+
       document.querySelector("main .hero").style.display = "none";
       document.querySelector("#grupos").style.display = "none";
       document.querySelector("#leitura").style.display = "none";
       document.querySelector("#sobre").style.display = "none";
 
-      document.querySelector("#juliaCasoUso").style.display = "block";
-      window.location.href='grupo.html';
-      voltarParaInicio();
+
+      window.location.href = "grupo.html";
+      
       carregarComentarios();
     });
   }
@@ -214,6 +213,9 @@ let iframe = document.getElementById("iframePDF");
   window.entrarGrupo = function(nomeGrupo) {
     
     document.getElementById("juliaCasoUso").style.display = "block";
+    document.getElementById("tituloGrupo").textContent = "Grupo: " + nomeGrupo;
+    document.getElementById("nomeLivro").textContent = nomeGrupo;
+    document.getElementById("tituloPDF").textContent = nomeGrupo;
 
     if(nomeGrupo === "Neuromancer") {
       iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=19C2kBkCgu3AaH7J8cw1G_aLDYWFbSOaW&export=download";
@@ -226,6 +228,33 @@ let iframe = document.getElementById("iframePDF");
       document.getElementById("tituloPDF").innerText = "Duna";
     }
 
+let comentarioTextarea = document.querySelector("#forumGrupo textarea");
+let enviarComentarioBtn = document.querySelector("#forumGrupo button");
+
+enviarComentarioBtn.addEventListener("click", () => {
+  let texto = comentarioTextarea.value.trim();
+  if (texto === "") return;
+
+  let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+  let autorComentario = usuarioLogado ? usuarioLogado.nomeUsuario : "Anônimo";
+
+  let novoComentario = {
+    autor: autorComentario,
+    texto: texto,
+  };
+
+  let comentarios = JSON.parse(
+    localStorage.getItem("comentariosNeuromancer") || "[]"
+  );
+
+  comentarios.push(novoComentario);
+  localStorage.setItem("comentariosNeuromancer", JSON.stringify(comentarios));
+  comentarioTextarea.value = "";
+  carregarComentarios();
+});
+
+
+  carregarComentarios();
   };
 
   // voltar
@@ -258,27 +287,6 @@ let iframe = document.getElementById("iframePDF");
     alert("Capítulo marcado como concluído! 🎉");
   };
 
-  // enviar novo comentário
-  enviarComentarioBtn.addEventListener("click", () => {
-    let texto = comentarioTextarea.value.trim();
-    if (texto === "") return;
-
-    let novoComentario = {
-      autor: "Você",
-      texto: texto,
-    };
-
-    // aalvar no localStorage
-    let comentarios = JSON.parse(
-      localStorage.getItem("comentariosNeuromancer") || "[]"
-    );
-    comentarios.push(novoComentario);
-    localStorage.setItem("comentariosNeuromancer", JSON.stringify(comentarios));
-
-    comentarioTextarea.value = "";
-    carregarComentarios();
-  });
-
   function carregarComentarios() {
     let comentarios = JSON.parse(
       localStorage.getItem("comentariosNeuromancer") || "[]"
@@ -301,4 +309,27 @@ let iframe = document.getElementById("iframePDF");
       listaComentarios.appendChild(li);
     });
   }
+
+  const dados = JSON.parse(localStorage.getItem("grupoDados"));
+
+  if (dados) {
+    document.getElementById("tituloGrupo").innerText = `Grupo: ${dados.nomeGrupo}`;
+    document.getElementById("nomeLivro").innerText = dados.nomeLivro;
+
+    const genero = document.getElementById("generoLivro").querySelector("h4");
+    genero.innerText = `Gênero: ${dados.genero}`;
+
+    const descricao = document.getElementById("descricaoLivro").querySelector("h4");
+    descricao.innerText = `Descrição: ${dados.descricao}`;
+
+    const tituloPDF = document.getElementById("tituloPDF");
+    tituloPDF.innerText = dados.nomeLivro;
+
+    const iframe = document.getElementById("iframePDF");
+    iframe.src = "../pdfs/" + dados.nomeLivro + ".pdf"; // ajuste conforme sua estrutura
+
+    // Mostra a seção do grupo
+    document.getElementById("juliaCasoUso").style.display = "block";
+  }
+
 });

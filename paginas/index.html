@@ -9,19 +9,23 @@
   </head>
   <body>
     <header>
+
+      <h1>Coleitura</h1>
       <div class="container">
-        <h1>Coleitura</h1>
+        <div class="sidebar">
         <nav>
+           <span h2 class="logo-text">CoLeitura</span>
           <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="grupo.html">Grupos</a></li>
-            <li><a href="#livros">Livros</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="form.html">Criar grupo</a></li>
-            <li><a href="#" id="abrirModal">Perfil</a></li>
-            <li><a href="login.html">Sair</a></li>
+            <li><a href="index.html"><img src="../imagens/pagina-inicial.png" class="icon-img" alt="Pagina Inicial"><span class="label">Início</span></a></li>
+            <li><a href="grupo.html"><img src="../imagens/grupo.png" class="icon-img" alt="Criar Grupo"><span class="label">Grupos</span></a></li>
+            <li><a href="#livros"><img src="../imagens/pilha-de-livros.png" class="icon-img" alt="Livros"><span class="label">Livros</span></a></li>
+            <li><a href="#sobre"><img src="../imagens/sobre.png" class="icon-img" alt="Sobre"><span class="label">Sobre</span></a></li>
+            <li><a href="form.html"><img src="../imagens/criar-conta.png" class="icon-img" alt="Criar Grupo"><span class="label">Criar grupo</span></a></li>
+            <li><a href="#"><img src="../imagens/perfil.png" class="icon-img" alt="Perfil"><span class="label" id="abrirModal">Perfil</span></a></li>
+            <li><a href="login.html"><img src="../imagens/saida.png" class="icon-img" alt="Sair"><span class="label">Sair</span></a></li>
           </ul>
         </nav>
+        </div>
       </div>
 
         <div id="meuModal" class="modal">
@@ -54,13 +58,30 @@
       </section>
 
       <section id="grupos" class="section">
-        <h3>Grupos de Leitura</h3>
+        <div class="grupo-leitura">
+        <h3><img src="../imagens/grupo.png" class="icon-grupo-img" alt="Grupos de Leitura">Grupos de Leitura</h3>
+
         <p>
-          Crie ou participe de grupos para discutir seus livros favoritos.
-          Moderação ativa e alertas de spoiler garantem uma boa experiência para
-          todos.
+          <b>Participe dos Grupos de Leitura</b><br>
+          Descubra pessoas que compartilham o mesmo amor pelos livros que você!</b>
+          Nos grupos de leitura, você poderá:<br><br>
+          <ul>
+            <li>Comentar cada capítulo.</li>
+            <li>Trocar ideias.</li>
+            <li>Viver a leitura em comunidade.<br>
+            <li>Ter moderação ativa e alertas de spoiler que garantem um espaço seguro e divertido para todos os leitores.<br><br>
+          </ul>
+          <b>Entre, interaja e transforme a leitura em uma experiência coletiva!</b><br><br>
         </p>
+
+        <div class="btn-container">
         <button id="testeBotao" href="grupo.html" class="btn">🔍 Explorar Grupos</button>
+        <button id="testeForm" href="form.html" class="btn">🔍 Criar Grupo</button>
+        </div>
+        </div>
+        <div id="imagem-grupo">
+          <img src="../imagens/leitura.png">
+        </div>
       </section>
 
       <section id="leitura" class="section">
@@ -73,11 +94,37 @@
       </section>
 
       <section id="sobre" class="section">
-        <h3>Sobre o Projeto</h3>
+        <div id="texto-sobre">
+        <h3>🧾 Sobre o CoLeitura</h3>
+
         <p>
-          Uma plataforma inovadora para tornar a leitura mais social,
-          colaborativa e divertida.
+         O CoLeitura é um espaço criado para unir leitores que desejam compartilhar experiências 
+         literárias em grupo. Aqui, você pode criar ou entrar em grupos de leitura, descobrir
+         novos livros, trocar ideias e acompanhar leituras em conjunto.<br>
+
+        Nosso objetivo é tornar a leitura mais acessível, divertida e colaborativa. 
+        Seja você um leitor iniciante ou apaixonado por livros, aqui é o seu lugar!<br><br><br>
+
+        <h3>📚 O que você pode fazer no CoLeitura:</h3>
+
+        <div class="lita-e-imagem">
+         <ul>
+            <li>✏️Criar grupos de leitura com nome, livro e descrição</li>
+            <li>📎 Compartilhar arquivos em PDF dos livros</li>
+            <li>🔒Escolher se o grupo será público ou privado</li>
+            <li>🔍Descobrir novos gêneros e interagir com outros leitores</li><br><br>
+         </ul>
+        </div>
+
         </p>
+
+        <p> Estamos construindo uma comunidade literária — <b>e você é parte essencial dela!</b> 💬✨</p>
+        </div>
+
+        <div id="imagem-grupo-lista">
+          <img src="../imagens/livro_voando.png">
+        </div>
+
       </section>
 
     </main>

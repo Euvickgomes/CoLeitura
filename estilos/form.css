@@ -164,11 +164,19 @@ nav a:hover,
 }
 
 .voltar {
-  width: 100px;       
-  height: 100px;
-  margin-left: 7%;
+  width: 90px;       
+  height: 40px;
+  margin-left: 5%;
   cursor: pointer;
   transition: transform 0.2s ease;
+}
+
+.voltar svg{
+  width: 50px;
+  height: 50px;
+  stroke: white;          
+  stroke-width: 1.5;     
+  fill: none;
 }
 
 .voltar:hover {

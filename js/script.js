@@ -217,14 +217,14 @@ let iframe = document.getElementById("iframePDF");
     document.getElementById("nomeLivro").textContent = nomeGrupo;
     document.getElementById("tituloPDF").textContent = nomeGrupo;
 
-    if(nomeGrupo === "Neuromancer") {
-      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=19C2kBkCgu3AaH7J8cw1G_aLDYWFbSOaW&export=download";
-      document.getElementById("tituloPDF").innerText = "Neuromancer";
+    if(nomeGrupo === "Harry Potter") {
+      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download";
+      document.getElementById("tituloPDF").innerText = "Harry Potter";
     } else if(nomeGrupo === "1984") {
-      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1vX0g2r7x4q5a3j6k8J9Qe1m4Zc5f3GzE&export=download";
+      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1cvbuFT_qXqs_kPCOY3u87b9_vdqpncWy&export=download";
       document.getElementById("tituloPDF").innerText = "1984";
     } else if(nomeGrupo === "Duna") {
-      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1vX0g2r7x4q5a3j6k8J9Qe1m4Zc5f3GzE&export=download";
+      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1X8afD2TvIbO8QXfw85b2hy9SFVGRQNAZ&export=download";
       document.getElementById("tituloPDF").innerText = "Duna";
     }
 
@@ -244,11 +244,11 @@ enviarComentarioBtn.addEventListener("click", () => {
   };
 
   let comentarios = JSON.parse(
-    localStorage.getItem("comentariosNeuromancer") || "[]"
+    localStorage.getItem("comentariosHarryPotter") || "[]"
   );
 
   comentarios.push(novoComentario);
-  localStorage.setItem("comentariosNeuromancer", JSON.stringify(comentarios));
+  localStorage.setItem("comentariosHarryPotter", JSON.stringify(comentarios));
   comentarioTextarea.value = "";
   carregarComentarios();
 });
@@ -289,7 +289,7 @@ enviarComentarioBtn.addEventListener("click", () => {
 
   function carregarComentarios() {
     let comentarios = JSON.parse(
-      localStorage.getItem("comentariosNeuromancer") || "[]"
+      localStorage.getItem("comentariosHarryPotter") || "[]"
     );
     listaComentarios.innerHTML = "";
 

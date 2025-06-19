@@ -213,6 +213,7 @@ footer {
   background-color: var(--azulbotao);
   color: var(--branco);
   border: none;
+  text-decoration: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
@@ -395,6 +396,13 @@ button.excluir {
   border-radius: 12px;
 }
 
+#imagem-estante img{
+  max-width: 230px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
 .logo-text {
   font-size: 25px;
   font-weight: 600;
@@ -407,6 +415,84 @@ button.excluir {
 .sidebar:hover .logo-text {
   opacity: 1;
 }
+
+.filtros-estante {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.filtros-estante button {
+  background-color: #9370DB;  
+  color: white;
+  border: 4px solid rgb(255, 255, 255);
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 25px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtros-estante button:hover {
+  background-color: #6a0dad;
+  color: white;
+  transform: scale(1.08);
+}
+
+
+.categoria-livros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-livro {
+  position: relative;
+  background-color:#f8f4ff9a;
+  border-radius: 15px;
+  box-shadow: 20px 4px 8px rgba(0,0,0,0.1);
+  width: 180px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+  transition: transform 0.2s;
+  overflow: hidden;
+}
+
+.card-livro:hover .overlay-sinopse {
+  opacity: 1;
+}
+
+.card-livro:hover{
+  transform: scale(1.05);
+}
+
+.card-livro img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.overlay-sinopse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.79);
+  color: white;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+
 
 
 

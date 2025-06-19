@@ -36,48 +36,6 @@ header {
   border-bottom-right-radius: 20px;
 }
 
-nav {
-  position: relative;
-  height: 80px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
-}
-
-nav a, 
-#criarGrupo {
-  color: var(--branco);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  display: inline-block;
-  background-color: transparent;
-}
-
-nav a:hover,
-#criarGrupo:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  background-color: var(--roxomedio);
-}
 
 #logo {
   height: 80px;
@@ -157,7 +115,7 @@ nav a:hover,
 }
 
 .titulo {
-    font-size: 350%;
+    font-size: 280%;
     margin: 0;
     margin-right: 17%;
     flex: 1;
@@ -173,7 +131,7 @@ nav a:hover,
 
 .voltar svg{
   width: 50px;
-  height: 50px;
+  height: 40px;
   stroke: white;          
   stroke-width: 1.5;     
   fill: none;

@@ -18,7 +18,7 @@
           <ul>
             <li><a href="index.html"><img src="../imagens/pagina-inicial.png" class="icon-img" alt="Pagina Inicial"><span class="label">Início</span></a></li>
             <li><a href="grupo.html"><img src="../imagens/grupo.png" class="icon-img" alt="Criar Grupo"><span class="label">Grupos</span></a></li>
-            <li><a href="#livros"><img src="../imagens/pilha-de-livros.png" class="icon-img" alt="Livros"><span class="label">Livros</span></a></li>
+            <li><a href="estante.html"><img src="../imagens/pilha-de-livros.png" class="icon-img" alt="Livros"><span class="label">Estante</span></a></li>
             <li><a href="#sobre"><img src="../imagens/sobre.png" class="icon-img" alt="Sobre"><span class="label">Sobre</span></a></li>
             <li><a href="form.html"><img src="../imagens/criar-conta.png" class="icon-img" alt="Criar Grupo"><span class="label">Criar grupo</span></a></li>
             <li><a href="#"><img src="../imagens/perfil.png" class="icon-img" alt="Perfil"><span class="label" id="abrirModal">Perfil</span></a></li>
@@ -63,7 +63,7 @@
 
         <p>
           <b>Participe dos Grupos de Leitura</b><br>
-          Descubra pessoas que compartilham o mesmo amor pelos livros que você!</b>
+          Descubra pessoas que compartilham o mesmo amor pelos livros que você!
           Nos grupos de leitura, você poderá:<br><br>
           <ul>
             <li>Comentar cada capítulo.</li>
@@ -75,8 +75,8 @@
         </p>
 
         <div class="btn-container">
-        <button id="testeBotao" href="grupo.html" class="btn">🔍 Explorar Grupos</button>
-        <button id="testeForm" href="form.html" class="btn">🔍 Criar Grupo</button>
+        <a href="grupo.html" class="btn">🔍 Explorar Grupos</a>
+        <a href="form.html" class="btn">🔍 Criar Grupo</a>
         </div>
         </div>
         <div id="imagem-grupo">
@@ -84,13 +84,31 @@
         </div>
       </section>
 
-      <section id="leitura" class="section">
-        <h3>Seus livros</h3>
-        <p>
-          Leia o mesmo e-book com outras pessoas. Visualize marcações e
-          comentários em tempo real.
-        </p>
-        <button class="btn">📖 Iniciar Leitura</button>
+      <section id="grupos" class="section">
+        <div id="imagem-estante">
+          <img src="../imagens/estante_icon.png">
+        </div>
+
+        <div class="grupo-leitura">
+        <h3><img src="../imagens/book.png" class="icon-grupo-img" alt="Grupos de Leitura">Minha Estante</h3>
+        <p><b>Acesse a sua Estante</b><br>
+          Aqui é o seu espaço para organizar suas leituras no CoLeitura!
+          Aqui você pode classificar seus livros em:<br><br>
+
+        <ul>
+          <li><b>Estou Lendo:</b> Para os livros que você está acompanhando no momento.</li>
+          <li><b>Lido:</b> Para os livros que você já finalizou.</li>
+          <li><b>Quero Ler:</b> Para os títulos que você deseja começar futuramente.</li>
+        </ul> <br>
+
+        <b>Mantenha o controle da sua jornada de leitura de forma simples e prática!</b>
+        </p><br>
+
+        <div class="btn-container">
+        <a href="estante.html"class="btn">🔍 Acessar Minha Estante</a>
+        </div>
+        </div>
+
       </section>
 
       <section id="sobre" class="section">
@@ -107,7 +125,7 @@
 
         <h3>📚 O que você pode fazer no CoLeitura:</h3>
 
-        <div class="lita-e-imagem">
+        <div class="lista-e-imagem">
          <ul>
             <li>✏️Criar grupos de leitura com nome, livro e descrição</li>
             <li>📎 Compartilhar arquivos em PDF dos livros</li>

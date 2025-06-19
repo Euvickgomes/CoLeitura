@@ -333,3 +333,9 @@ enviarComentarioBtn.addEventListener("click", () => {
   }
 
 });
+
+function mostrarCategoria(categoria) {
+  const categorias = document.querySelectorAll('.categoria-livros');
+  categorias.forEach(cat => cat.style.display = 'none');
+  document.getElementById(categoria).style.display = 'flex';
+}

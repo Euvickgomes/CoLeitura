@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coleitura</title>
+    <link rel="icon" href="../imagens/favicon.png" type="image/png"/>
+    <link rel="stylesheet" href="../estilos/style.css" />
+  </head>
+  <body>
+    <header>
+
+      <h1>Minha Estante</h1>
+      <div class="container">
+        <div class="sidebar">
+        <nav>
+           <span h2 class="logo-text">CoLeitura</span>
+          <ul>
+            <li><a href="index.html"><img src="../imagens/pagina-inicial.png" class="icon-img" alt="Pagina Inicial"><span class="label">Início</span></a></li>
+            <li><a href="grupo.html"><img src="../imagens/grupo.png" class="icon-img" alt="Criar Grupo"><span class="label">Grupos</span></a></li>
+            <li><a href="estante.html"><img src="../imagens/pilha-de-livros.png" class="icon-img" alt="Livros"><span class="label">Estante</span></a></li>
+            <li><a href="#sobre"><img src="../imagens/sobre.png" class="icon-img" alt="Sobre"><span class="label">Sobre</span></a></li>
+            <li><a href="form.html"><img src="../imagens/criar-conta.png" class="icon-img" alt="Criar Grupo"><span class="label">Criar grupo</span></a></li>
+            <li><a href="#"><img src="../imagens/perfil.png" class="icon-img" alt="Perfil"><span class="label" id="abrirModal">Perfil</span></a></li>
+            <li><a href="login.html"><img src="../imagens/saida.png" class="icon-img" alt="Sair"><span class="label">Sair</span></a></li>
+          </ul>
+        </nav>
+        </div>
+      </div>
+
+        <div id="meuModal" class="modal">
+        <div class="modal-conteudo">
+        <span class="fechar">&times;</span>
+        <h2 id="nomeUsuarioModal"></h2>
+        
+        <div class="foto-container">
+          <img id="fotoPreview" src="" alt="Foto do usuário">
+          <input type="file" id="fotoInput" accept="image/*" />
+        </div>
+
+        <form id="editarUsuarioForm">
+          <input type="email" id="emailEditar" placeholder="Email" required />
+          <input type="password" id="senhaEditar" placeholder="Senha" required />
+          <button type="submit">Salvar alterações</button>
+        </form>
+      </div>
+      </div>
+    </header>
+
+    <main>
+
+    <div class="filtros-estante">
+    <button onclick="mostrarCategoria('quero-ler')">Quero Ler</button>
+    <button onclick="mostrarCategoria('lendo')">Lendo</button>
+    <button onclick="mostrarCategoria('lidos')">Lidos</button>
+    </div>
+
+    <div id="quero-ler" class="categoria-livros">
+    <div class="card-livro">
+        <img src="../imagens/Alquimista_Livro.jpg" alt="Capa do livro">
+        <h3>O Alquimista</h3>
+        <p> Paulo Coelho</p>
+    
+    <div class="overlay-sinopse">
+        <p>Santiago, um jovem pastor, parte numa jornada em busca de um tesouro escondido. Ao longo do caminho, descobre o valor dos sonhos, da perseverança e das coincidências da vida.</p>
+  </div>
+  </div>
+
+    <div class="card-livro">
+        <img src="../imagens/LoboDasEstepes.jpg" alt="Capa do livro">
+        <h3>O Lobo Das Estepes</h3>
+        <p>Hermann Hesse</p>
+
+    <div class="overlay-sinopse">
+        <p>Uma profunda reflexão sobre a dualidade da natureza humana. Harry Haller sente-se dividido entre os seus instintos primitivos e a sua busca espiritual e intelectual.</p>
+    </div>
+    </div>
+
+    <div class="card-livro">
+        <img src="../imagens/Jogador_Livro.jpg" alt="Capa do livro">
+        <h3>O Jogador</h3>
+        <p>Fiódor Dostoiévski</p>
+
+    <div class="overlay-sinopse">
+        <p>Um jovem tutor torna-se obcecado pelo jogo da roleta enquanto luta com as suas paixões e vícios. Um retrato psicológico intenso sobre dependência e comportamento humano.</p>
+    </div>    
+    </div>
+
+    <div class="card-livro">
+        <img src="../imagens/BrasCubas_Livros.jpg" alt="Capa do livro">
+        <h3>Memórias Póstumas de Brás Cubas</h3>
+        <p>Machado de Assis</p>
+
+    <div class="overlay-sinopse">
+        <p>Narrado por um defunto, este clássico brasileiro mistura humor, filosofia e crítica social, enquanto Brás Cubas reflete sobre a sua vida e as suas escolhas.</p>
+    </div>    
+    </div>
+    </div>
+
+
+    <div id="lendo" class="categoria-livros">
+    <div class="card-livro">
+        <img src="../imagens/HarryPotter_Livro.jpg" alt="Capa do livro">
+        <h3>Harry Potter e a Pedra Filosofal</h3>
+        <p>J.K. Rowling</p>
+    <div class="overlay-sinopse">
+        <p>Harry descobre que é feiticeiro e vai estudar em Hogwarts, onde faz amigos, aprende magia e enfrenta o vilão Voldemort pela primeira vez.</p>
+    </div>    
+    </div>
+
+    <div class="card-livro">
+    <img src="../imagens/Duna_Livro.jpg" alt="Capa do livro">
+    <h3>Duna</h3>
+        <p>Frank Herbert</p>
+
+    <div class="overlay-sinopse">
+        <p>Num planeta deserto, Paul Atreides luta pelo controlo da especiaria mais valiosa do universo, enquanto enfrenta traições, profecias e batalhas épicas.</p>
+    </div>
+    </div>
+
+    <div class="card-livro">
+        <img src="../imagens/1984_Livro.webp" alt="Capa do livro">
+        <h3>1984</h3>
+        <p>George Orwell</p>
+    
+    <div class="overlay-sinopse">
+        <p>Num futuro distópico, Winston Smith tenta resistir a um regime totalitário onde o "Grande Irmão" controla tudo, até os pensamentos.</p>
+    </div>    
+    </div>
+    </div>
+
+    <div id="lidos" class="categoria-livros">
+    <div class="card-livro">
+        <img src="../imagens/PequenoPrincipe_Livro.jpg" alt="Capa do livro">
+        <h3>O Pequeno Príncipe</h3>
+        <p>Antoine de Saint-Exupéry</p>
+
+    <div class="overlay-sinopse">
+        <p>Uma fábula filosófica sobre a amizade, o amor e o sentido da vida, contada através das aventuras de um pequeno príncipe vindo de outro planeta.</p>
+    </div>    
+    </div>
+
+    <div class="card-livro">
+    <img src="../imagens/SombraDoVento_Livro.jpg" alt="Capa do livro">
+    <h3>A Sombra do Vento</h3>
+        <p>Carlos Ruiz Zafón</p>
+
+    <div class="overlay-sinopse">
+        <p>Em Barcelona pós-guerra, o jovem Daniel descobre um livro esquecido e inicia uma investigação sobre o misterioso autor, desenterrando segredos perigosos. Um thriller literário repleto de mistério e emoção.</p>
+    </div>
+    </div>
+
+    <div class="card-livro">
+        <img src="../imagens/VelhoEMar_Livro.jpg" alt="Capa do livro">
+        <h3>O Velho e o Mar</h3>
+        <p>Ernest Hemingway</p>
+
+    <div class="overlay-sinopse">
+        <p>Um velho pescador luta durante dias para capturar um peixe enorme nas águas de Cuba. Uma história simples, mas com uma poderosa mensagem de resistência e dignidade.</p>
+    </div>    
+    </div>
+
+    <div class="card-livro">
+        <img src="../imagens/Talisma_Livro.jpg" alt="Capa do livro">
+        <h3>O Talismã</h3>
+        <p>Stephen King e Peter Straub</p>
+
+    <div class="overlay-sinopse">
+        <p>Um jovem atravessa mundos paralelos numa busca épica para salvar a sua mãe moribunda. Fantasia, aventura e suspense numa narrativa envolvente.</p>
+    </div>    
+    </div>
+    </div>
+
+
+
+    </main>
+
+        <footer>
+      <div class="container">
+        <p>&copy; 2025 Coleitura</p>
+        <div class="footer-nav">
+          <div>👥<br />Amizades</div>
+          <div>🔄<br />Conectar</div>
+          <div>🏠<br />Início</div>
+          <div>⭐<br />Favoritos</div>
+          <div>💬<br />Mensagens</div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="../js/script.js"></script>
+  </body>
+</html>

@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //modal editar usuario
   let abrir = document.getElementById("abrirModal");
   let modal = document.getElementById("meuModal");
   let fechar = document.querySelector(".fechar");
@@ -189,6 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let explorarBtn = document.getElementById("testeBotao");
+  
   let spoilerAtivado = false;
 
   let listaComentarios = document.querySelector("#comentariosGrupo ul");
@@ -210,105 +212,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let iframe = document.getElementById("iframePDF");
 
-  window.entrarGrupo = function(nomeGrupo) {
-    
-    document.getElementById("juliaCasoUso").style.display = "block";
-    document.getElementById("tituloGrupo").textContent = "Grupo: " + nomeGrupo;
-    document.getElementById("nomeLivro").textContent = nomeGrupo;
-    document.getElementById("tituloPDF").textContent = nomeGrupo;
+let nomeGrupoAtual = ""; // variável global para guardar o grupo ativo
 
-    if(nomeGrupo === "Harry Potter") {
-      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download";
-      document.getElementById("tituloPDF").innerText = "Harry Potter";
-    } else if(nomeGrupo === "1984") {
-      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1cvbuFT_qXqs_kPCOY3u87b9_vdqpncWy&export=download";
-      document.getElementById("tituloPDF").innerText = "1984";
-    } else if(nomeGrupo === "Duna") {
-      iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1X8afD2TvIbO8QXfw85b2hy9SFVGRQNAZ&export=download";
-      document.getElementById("tituloPDF").innerText = "Duna";
-    }
+window.entrarGrupo = function(nomeGrupo) {
+  nomeGrupoAtual = nomeGrupo; // guarda o grupo selecionado
 
-let comentarioTextarea = document.querySelector("#forumGrupo textarea");
-let enviarComentarioBtn = document.querySelector("#forumGrupo button");
+  document.getElementById("juliaCasoUso").style.display = "block";
+  document.getElementById("tituloGrupo").textContent = "Grupo: " + nomeGrupo;
+  document.getElementById("nomeLivro").textContent = nomeGrupo;
+  document.getElementById("tituloPDF").textContent = nomeGrupo;
 
-enviarComentarioBtn.addEventListener("click", () => {
-  let texto = comentarioTextarea.value.trim();
-  if (texto === "") return;
-
-  let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-  let autorComentario = usuarioLogado ? usuarioLogado.nomeUsuario : "Anônimo";
-
-  let novoComentario = {
-    autor: autorComentario,
-    texto: texto,
-  };
-
-  let comentarios = JSON.parse(
-    localStorage.getItem("comentariosHarryPotter") || "[]"
-  );
-
-  comentarios.push(novoComentario);
-  localStorage.setItem("comentariosHarryPotter", JSON.stringify(comentarios));
-  comentarioTextarea.value = "";
-  carregarComentarios();
-});
-
-
-  carregarComentarios();
-  };
-
-  // voltar
-  window.voltarParaInicio = function () {
-    document.querySelector("#juliaCasoUso").style.display = "none";
-    document.querySelector("main .hero").style.display = "block";
-    document.querySelector("#grupos").style.display = "block";
-    document.querySelector("#leitura").style.display = "block";
-    document.querySelector("#sobre").style.display = "block";
-  };
-
-  // spoiler 
-  window.toggleSpoiler = function () {
-    let btn = document.getElementById("spoilerToggle");
-
-    spoilerAtivado = !spoilerAtivado;
-
-    if (spoilerAtivado) {
-      btn.innerText = "🔓 Spoiler: Ativado";
-      alert("Modo spoiler ativado: comentários com spoiler foram ocultados.");
-    } else {
-      btn.innerText = "🔒 Spoiler: Desativado";
-    }
-
-    carregarComentarios();
-  };
-
-  // concluir
-  window.marcarComoConcluido = function () {
-    alert("Capítulo marcado como concluído! 🎉");
-  };
-
-  function carregarComentarios() {
-    let comentarios = JSON.parse(
-      localStorage.getItem("comentariosHarryPotter") || "[]"
-    );
-    listaComentarios.innerHTML = "";
-
-    if (spoilerAtivado) {
-      let aviso = document.createElement("li");
-      aviso.textContent =
-        "🛑 Comentários ocultos devido ao modo spoiler ativado.";
-      aviso.style.fontStyle = "italic";
-      aviso.style.color = "gray";
-      listaComentarios.appendChild(aviso);
-      return;
-    }
-
-    comentarios.forEach((com) => {
-      let li = document.createElement("li");
-      li.innerHTML = `<strong>${com.autor}:</strong> ${com.texto}`;
-      listaComentarios.appendChild(li);
-    });
+  if(nomeGrupo === "Harry Potter") {
+    iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download";
+    document.getElementById("tituloPDF").innerText = "Harry Potter";
+  } else if(nomeGrupo === "1984") {
+    iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1cvbuFT_qXqs_kPCOY3u87b9_vdqpncWy&export=download";
+    document.getElementById("tituloPDF").innerText = "1984";
+  } else if(nomeGrupo === "Duna") {
+    iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1X8afD2TvIbO8QXfw85b2hy9SFVGRQNAZ&export=download";
+    document.getElementById("tituloPDF").innerText = "Duna";
   }
+
+  let comentarioTextarea = document.querySelector("#forumGrupo textarea");
+  let enviarComentarioBtn = document.querySelector("#forumGrupo button");
+
+  // Remover event listener anterior para evitar duplicação
+  enviarComentarioBtn.replaceWith(enviarComentarioBtn.cloneNode(true));
+  enviarComentarioBtn = document.querySelector("#forumGrupo button");
+
+  enviarComentarioBtn.addEventListener("click", () => {
+    let texto = comentarioTextarea.value.trim();
+    if (texto === "") return;
+
+    let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    let autorComentario = usuarioLogado ? usuarioLogado.nomeUsuario : "Anônimo";
+
+    let novoComentario = {
+      autor: autorComentario,
+      texto: texto,
+    };
+
+    let chaveComentarios = "comentarios" + nomeGrupo.replace(/\s+/g, "");
+    let comentarios = JSON.parse(localStorage.getItem(chaveComentarios) || "[]");
+
+    comentarios.push(novoComentario);
+    localStorage.setItem(chaveComentarios, JSON.stringify(comentarios));
+    comentarioTextarea.value = "";
+    carregarComentarios();
+  });
+
+  carregarComentarios();
+};
+
+function carregarComentarios() {
+  if (!nomeGrupoAtual) return;
+
+  let chaveComentarios = "comentarios" + nomeGrupoAtual.replace(/\s+/g, "");
+  let comentarios = JSON.parse(localStorage.getItem(chaveComentarios) || "[]");
+  listaComentarios.innerHTML = "";
+
+  if (spoilerAtivado) {
+    let aviso = document.createElement("li");
+    aviso.textContent = "🛑 Comentários ocultos devido ao modo spoiler ativado.";
+    aviso.style.fontStyle = "italic";
+    aviso.style.color = "gray";
+    listaComentarios.appendChild(aviso);
+    return;
+  }
+
+  comentarios.forEach((com) => {
+    let li = document.createElement("li");
+    li.innerHTML = `<strong>${com.autor}:</strong> ${com.texto}`;
+    listaComentarios.appendChild(li);
+  });
+}
 
   const dados = JSON.parse(localStorage.getItem("grupoDados"));
 

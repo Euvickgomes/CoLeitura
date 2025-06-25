@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 let nomeGrupoAtual = "";
 let capituloSelecionado = null;
 
+=======
+>>>>>>> 431d647ac676853048dc1461194d6c70e815f742
 document.addEventListener("DOMContentLoaded", () => {
   //auth.js
   let usuarioLogado = localStorage.getItem("usuarioLogado");
@@ -276,6 +279,10 @@ localStorage.setItem("livrosEstante", JSON.stringify(books));
 
 let iframe = document.getElementById("iframePDF");
 
+<<<<<<< HEAD
+=======
+let nomeGrupoAtual = ""; // variável global para guardar o grupo ativo
+>>>>>>> 431d647ac676853048dc1461194d6c70e815f742
 
 window.entrarGrupo = function(nomeGrupo) {
   nomeGrupoAtual = nomeGrupo; // guarda o grupo selecionado
@@ -297,6 +304,7 @@ window.entrarGrupo = function(nomeGrupo) {
     alert("Livro nao encontrado na estante");
   }
 
+<<<<<<< HEAD
   // Força seleção do Capítulo 1 ao entrar
   capituloSelecionado = 1;
   document.getElementById("capituloSelect").value = 1;
@@ -321,6 +329,8 @@ window.entrarGrupo = function(nomeGrupo) {
   carregarMensagensCapitulo();
 
 
+=======
+>>>>>>> 431d647ac676853048dc1461194d6c70e815f742
   let comentarioTextarea = document.querySelector("#forumGrupo textarea");
   let enviarComentarioBtn = document.querySelector("#forumGrupo button");
 
@@ -350,9 +360,12 @@ window.entrarGrupo = function(nomeGrupo) {
   });
 
   carregarComentarios();
+<<<<<<< HEAD
 
   capituloSelecionado = parseInt(document.getElementById("capituloSelect").value);
   carregarMensagensCapitulo();
+=======
+>>>>>>> 431d647ac676853048dc1461194d6c70e815f742
 };
 
 document.getElementById("spoilerToggle")?.addEventListener("click", toggleSpoiler);
@@ -543,6 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "grupo.html";
   });
 });
+<<<<<<< HEAD
 
 document.getElementById("botaoForumToggle").addEventListener("click", () => {
   const aside = document.getElementById("forumCapitulos");
@@ -607,3 +621,5 @@ function carregarMensagensCapitulo() {
 }
 
 
+=======
+>>>>>>> 431d647ac676853048dc1461194d6c70e815f742

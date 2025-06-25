@@ -255,7 +255,7 @@ let books = {
   "A Sombra do Vento": {
     titulo: "A Sombra do Vento",
     autor: "Carlos Ruiz Zafón", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1DX9VeuHboWGGeFD8cp2ox2avHu4KX9Zm&export=download"
   },
   "O Velho e o Mar": {
     titulo: "O Velho e o Mar",
@@ -265,7 +265,7 @@ let books = {
   "O Talismã": {
     titulo: "O Talismã",
     autor: "Stephen King e Peter Straub", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1D_aJlET3a78TvkRAaRqperlVfW841g4-&export=download"
   }
 }
 
@@ -472,8 +472,10 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let id in livrosEstante) {
     const opt = document.createElement("option");
     opt.value = id;
-    opt.textContent = livrosEstante[id].titulo + " — " + livrosEstante[id].autor;
-    livroSelect.appendChild(opt);
+      if(livrosEstante[id].titulo != "Duna" && livrosEstante[id].titulo != "1984" && livrosEstante[id].titulo != "Harry Potter e a Pedra Filosofal"){
+        opt.textContent = livrosEstante[id].titulo + " — " + livrosEstante[id].autor;
+        livroSelect.appendChild(opt);
+      }
   }
 
   // Submete o formulário

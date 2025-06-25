@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <button id="spoilerToggle" onclick="toggleSpoiler()">🔒 Spoiler: Desativado</button>
+            <button id="spoilerToggle">🔒 Spoiler: Desativado</button>
 
             <div id="comentariosGrupo">
                 <h4>Comentários Anteriores</h4>
@@ -138,7 +138,50 @@
     </footer>
     
     <script src="../js/script.js"></script>
-    <script src="../js/form.js"></script>
+    
+    <script>
+      //script novo pois dentro do script.js nao estava funcionando
+      document.addEventListener("DOMContentLoaded", () => {
+        const containerHero = document.querySelector(".hero");
+
+        const gruposSalvos = JSON.parse(localStorage.getItem("gruposCriados")) || [];
+
+        gruposSalvos.forEach(grupo => {
+          const btn = document.createElement("button");
+          btn.textContent = `📚 Grupo: ${grupo.nomeGrupo}`;
+          btn.onclick = () => entrarGrupo(grupo.nomeGrupo);
+          containerHero.appendChild(btn);
+        });
+      });
+
+      function entrarGrupo(nomeGrupo) {
+        const grupo = (JSON.parse(localStorage.getItem("gruposCriados")) || []).find(g => g.nomeGrupo === nomeGrupo);
+        
+        if (!grupo) {
+          alert("Grupo não encontrado!");
+          return;
+        }
+
+        document.getElementById("juliaCasoUso").style.display = "block";
+        document.getElementById("tituloGrupo").textContent = "Grupo: " + grupo.nomeGrupo;
+        document.getElementById("nomeLivro").textContent = grupo.nomeLivro;
+        document.getElementById("tituloPDF").textContent = grupo.nomeLivro;
+        document.getElementById("descricaoLivro").innerHTML = `<h4>Descrição:</h4><p>${grupo.descricao}</p>`;
+        document.getElementById("generoLivro").innerHTML = `<h4>Gênero:</h4><p>${grupo.genero}</p>`;
+        document.getElementById("iframePDF").src = grupo.pdf;
+
+        // Oculta os botões de grupo
+        const botoes = document.querySelectorAll(".hero > button");
+        botoes.forEach(btn => btn.style.display = "none");
+      }
+
+      function voltarParaInicio() {
+        document.getElementById("juliaCasoUso").style.display = "none";
+        const botoes = document.querySelectorAll(".hero > button");
+        botoes.forEach(btn => btn.style.display = "inline-block");
+      }
+    </script>
+
 
   </body>
 </html>

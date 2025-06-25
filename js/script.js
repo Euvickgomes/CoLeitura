@@ -210,6 +210,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+let books = {
+  "O Alquimista": {
+    titulo: "O Alquimista",
+    autor: "Paulo Coelho", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "O Jogador": {
+    titulo: "O Jogador",
+    autor: "Fiódor Dostoiévski", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "O Lobo Das Estepes": {
+    titulo: "O Lobo Das Estepes",
+    autor: "Hermann Hesse", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "Memórias Póstumas de Brás Cubas": {
+    titulo: "Memórias Póstumas de Brás Cubas",
+    autor: "Machado de Assis", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "Harry Potter": {
+    titulo: "Harry Potter e a Pedra Filosofal",
+    autor: "J.K. Rowling", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "1984": {
+    titulo: "1984",
+    autor: "George Orwell", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1cvbuFT_qXqs_kPCOY3u87b9_vdqpncWy&export=download"
+  },
+  "Duna": {
+    titulo: "Duna",
+    autor: "Frank Herbert", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1X8afD2TvIbO8QXfw85b2hy9SFVGRQNAZ&export=download"
+  },
+  "O Pequeno Príncipe": {
+    titulo: "O Pequeno Príncipe",
+    autor: "Antoine de Saint-Exupéry", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "A Sombra do Vento": {
+    titulo: "A Sombra do Vento",
+    autor: "Carlos Ruiz Zafón", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "O Velho e o Mar": {
+    titulo: "O Velho e o Mar",
+    autor: "Ernest Hemingway", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  },
+  "O Talismã": {
+    titulo: "O Talismã",
+    autor: "Stephen King e Peter Straub", 
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download"
+  }
+}
+
+localStorage.setItem("livrosEstante", JSON.stringify(books));
+
 let iframe = document.getElementById("iframePDF");
 
 let nomeGrupoAtual = ""; // variável global para guardar o grupo ativo
@@ -222,15 +283,16 @@ window.entrarGrupo = function(nomeGrupo) {
   document.getElementById("nomeLivro").textContent = nomeGrupo;
   document.getElementById("tituloPDF").textContent = nomeGrupo;
 
-  if(nomeGrupo === "Harry Potter") {
-    iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1pdoc0aHgDGfBARJpHS_OclK9cWpnDDZu&export=download";
-    document.getElementById("tituloPDF").innerText = "Harry Potter";
-  } else if(nomeGrupo === "1984") {
-    iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1cvbuFT_qXqs_kPCOY3u87b9_vdqpncWy&export=download";
-    document.getElementById("tituloPDF").innerText = "1984";
-  } else if(nomeGrupo === "Duna") {
-    iframe.src = "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1X8afD2TvIbO8QXfw85b2hy9SFVGRQNAZ&export=download";
-    document.getElementById("tituloPDF").innerText = "Duna";
+  let livrosEst = JSON.parse(localStorage.getItem("livrosEstante")) || {};
+  let livroSelecionado = livrosEst[nomeGrupo];
+
+  if(livroSelecionado && livroSelecionado.pdf){
+    iframe.src = livroSelecionado.pdf;
+    document.getElementById("tituloPDF").innerText = livroSelecionado.titulo;
+  } else{
+    iframe.src = "";
+    document.getElementById("tituloPDF").innerText = "Livro nao encontrado";
+    alert("Livro nao encontrado na estante");
   }
 
   let comentarioTextarea = document.querySelector("#forumGrupo textarea");
@@ -263,6 +325,15 @@ window.entrarGrupo = function(nomeGrupo) {
 
   carregarComentarios();
 };
+
+document.getElementById("spoilerToggle")?.addEventListener("click", toggleSpoiler);
+
+function toggleSpoiler(){
+  spoilerAtivado = !spoilerAtivado;
+  let btn = document.getElementById("spoilerToggle");
+  btn.textContent = spoilerAtivado ? "🔒 Spoiler: Ativado" : "🔒 Spoiler: Desativado";
+  carregarComentarios();
+}
 
 function carregarComentarios() {
   if (!nomeGrupoAtual) return;
@@ -327,8 +398,6 @@ function mostrarCategoria(categoria) {
 
 }
 
-
-
 function mostrarTodos() {
   const todosLivros = document.querySelectorAll('.card-livro');
   todosLivros.forEach((livro) => livro.style.display = "flex");
@@ -336,54 +405,110 @@ function mostrarTodos() {
 
 let modoEdicao = false;
 
-document.getElementById("editarEstanteBtn").addEventListener("click", () => {
-  modoEdicao = !modoEdicao;
+let btnEditarEstante = document.getElementById("editarEstanteBtn");
 
-  const livros = document.querySelectorAll(".card-livro");
-  const btn = document.getElementById("editarEstanteBtn");
+if(btnEditarEstante) {
+  btnEditarEstante.addEventListener("click", () => {
+    modoEdicao = !modoEdicao;
 
-  livros.forEach((livro) => {
-    const overlay = livro.querySelector(".overlay-sinopse");
+    const livros = document.querySelectorAll(".card-livro");
+    const btn = document.getElementById("editarEstanteBtn");
 
-    // Ativar modo edição
-    if (modoEdicao) {
-      if (overlay) overlay.style.pointerEvents = "none"; // impede hover
-      livro.classList.add("modo-edicao");
+    livros.forEach((livro) => {
+      const overlay = livro.querySelector(".overlay-sinopse");
 
-      // Evita duplicar select
-      if (!livro.querySelector(".categoriaSelect")) {
-        const select = document.createElement("select");
-        select.className = "categoriaSelect";
-        select.innerHTML = `
-          <option value="todos">Todos</option>
-          <option value="quero-ler">Quero Ler</option>
-          <option value="lendo">Lendo</option>
-          <option value="lidos">Lidos</option>
-        `;
+      // Ativar modo edição
+      if (modoEdicao) {
+        if (overlay) overlay.style.pointerEvents = "none"; // impede hover
+        livro.classList.add("modo-edicao");
 
-        // Carrega categoria salva
-        const estante = JSON.parse(localStorage.getItem("estanteLivros")) || {};
-        const livroId = livro.dataset.id;
-        if (estante[livroId]) select.value = estante[livroId];
+        // Evita duplicar select
+        if (!livro.querySelector(".categoriaSelect")) {
+          const select = document.createElement("select");
+          select.className = "categoriaSelect";
+          select.innerHTML = `
+            <option value="todos">Todos</option>
+            <option value="quero-ler">Quero Ler</option>
+            <option value="lendo">Lendo</option>
+            <option value="lidos">Lidos</option>
+          `;
 
-        select.addEventListener("change", () => {
-          const novaCategoria = select.value;
-          estante[livroId] = novaCategoria;
-          localStorage.setItem("estanteLivros", JSON.stringify(estante));
-        });
+          // Carrega categoria salva
+          const estante = JSON.parse(localStorage.getItem("estanteLivros")) || {};
+          const livroId = livro.dataset.id;
+          if (estante[livroId]) select.value = estante[livroId];
 
-        livro.appendChild(select);
+          select.addEventListener("change", () => {
+            const novaCategoria = select.value;
+            estante[livroId] = novaCategoria;
+            localStorage.setItem("estanteLivros", JSON.stringify(estante));
+          });
+
+          livro.appendChild(select);
+        }
+      } else {
+        // Salvar estante
+        if (overlay) overlay.style.pointerEvents = "auto";
+        livro.classList.remove("modo-edicao");
+
+        const select = livro.querySelector(".categoriaSelect");
+        if (select) select.remove();
+
       }
-    } else {
-      // Salvar estante
-      if (overlay) overlay.style.pointerEvents = "auto";
-      livro.classList.remove("modo-edicao");
+    });
 
-      const select = livro.querySelector(".categoriaSelect");
-      if (select) select.remove();
-
-    }
+    btn.textContent = modoEdicao ? "Salvar Estante" : "Editar Estante";
   });
+}
 
-  btn.textContent = modoEdicao ? "Salvar Estante" : "Editar Estante";
+document.addEventListener("DOMContentLoaded", () => {
+  const livroSelect = document.getElementById("livroSelecionado");
+  const form = document.getElementById("form");
+
+  // Carrega livros do localStorage
+  const livrosEstante = JSON.parse(localStorage.getItem("livrosEstante")) || {};
+
+  // Preenche o select com os livros
+  for (let id in livrosEstante) {
+    const opt = document.createElement("option");
+    opt.value = id;
+    opt.textContent = livrosEstante[id].titulo + " — " + livrosEstante[id].autor;
+    livroSelect.appendChild(opt);
+  }
+
+  // Submete o formulário
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const grupoNome = document.getElementById("nomeGrupo").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+    const genero = document.getElementById("genero").value;
+    const visibilidade = document.getElementById("visibilidade").value;
+    const livroId = livroSelect.value;
+
+    if (!grupoNome || !livroId || !descricao || !genero || !visibilidade) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    const livroSelecionado = livrosEstante[livroId];
+
+    const grupo = {
+      nomeGrupo: grupoNome,
+      nomeLivro: livroSelecionado.titulo,
+      autor: livroSelecionado.autor,
+      pdf: livroSelecionado.pdf,
+      descricao,
+      genero,
+      visibilidade
+    };
+
+    const grupos = JSON.parse(localStorage.getItem("gruposCriados")) || [];
+    grupos.push(grupo);
+    localStorage.setItem("gruposCriados", JSON.stringify(grupos));
+
+    alert("Grupo criado com sucesso!");
+    form.reset();
+    window.location.href = "grupo.html";
+  });
 });

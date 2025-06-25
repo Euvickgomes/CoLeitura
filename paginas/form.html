@@ -34,11 +34,10 @@
       <label for="nomeGrupo">Nome do grupo</label><br>
       <input type="text" name="nomeGrupo" id="nomeGrupo" required><br><br>
 
-      <label for="linkPdf">Link do PDF</label><br>
-      <input type="url" name="linkPdf" id="linkPdf" required placeholder="https://exemplo.com/livro.pdf"><br><br>
-
-      <label for="livroFav">Nome do livro</label><br>
-      <input type="text" name="nomeLivro" id="nomeLivro" required><br><br>
+     <label for="livroSelecionado">Escolha um livro da estante</label><br>
+      <select id="livroSelecionado" required>
+        <option value="">Selecione um livro</option>
+      </select><br><br>
 
       <label for="descricao">Descrição do grupo</label><br>
       <textarea name="descricao" id="descricao" rows="4" required></textarea><br><br>
@@ -83,7 +82,6 @@
   </footer>
   
   <script src="../js/script.js"></script>
-  <script src="../js/form.js"></script>
 
 </body>
 

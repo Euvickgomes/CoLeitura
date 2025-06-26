@@ -302,10 +302,10 @@ window.entrarGrupo = function(nomeGrupo) {
   document.getElementById("capituloSelect").value = 1;
 
   // Mensagem fixa no Capítulo 1
-  const chave = `forumCapitulo_${nomeGrupoAtual}_cap1`;
-  const mensagensExistentes = JSON.parse(localStorage.getItem(chave)) || [];
+  let chave = `forumCapitulo_${nomeGrupoAtual}_cap1`;
+  let mensagensExistentes = JSON.parse(localStorage.getItem(chave)) || [];
 
-  const jaTemMensagemDaVitoria = mensagensExistentes.some(
+  let jaTemMensagemDaVitoria = mensagensExistentes.some(
     (msg) => msg.autor === "Vitoria" && msg.texto.includes("Ótimo começo de livro")
   );
 
@@ -387,22 +387,22 @@ function carregarComentarios() {
   });
 }
 
-  const dados = JSON.parse(localStorage.getItem("grupoDados"));
+  let dados = JSON.parse(localStorage.getItem("grupoDados"));
 
   if (dados) {
     document.getElementById("tituloGrupo").innerText = `Grupo: ${dados.nomeGrupo}`;
     document.getElementById("nomeLivro").innerText = dados.nomeLivro;
 
-    const genero = document.getElementById("generoLivro").querySelector("h4");
+    let genero = document.getElementById("generoLivro").querySelector("h4");
     genero.innerText = `Gênero: ${dados.genero}`;
 
-    const descricao = document.getElementById("descricaoLivro").querySelector("h4");
+    let descricao = document.getElementById("descricaoLivro").querySelector("h4");
     descricao.innerText = `Descrição: ${dados.descricao}`;
 
-    const tituloPDF = document.getElementById("tituloPDF");
+    let tituloPDF = document.getElementById("tituloPDF");
     tituloPDF.innerText = dados.nomeLivro;
 
-    const iframe = document.getElementById("iframePDF");
+    let iframe = document.getElementById("iframePDF");
     iframe.src = "../pdfs/" + dados.nomeLivro + ".pdf"; // ajuste conforme sua estrutura
 
     // Mostra a seção do grupo
@@ -411,12 +411,12 @@ function carregarComentarios() {
 });
 
 function mostrarCategoria(categoria) {
-  const estante = JSON.parse(localStorage.getItem("estanteLivros")) || {};
-  const todosLivros = document.querySelectorAll('#quero-ler .card-livro, #lendo .card-livro, #lidos .card-livro, .categoria-livros .card-livro');
+  let estante = JSON.parse(localStorage.getItem("estanteLivros")) || {};
+  let todosLivros = document.querySelectorAll('#quero-ler .card-livro, #lendo .card-livro, #lidos .card-livro, .categoria-livros .card-livro');
 
   todosLivros.forEach((livro) => {
-    const livroId = livro.dataset.id;
-    const categoriaLivro = estante[livroId] || "todos";
+    let livroId = livro.dataset.id;
+    let categoriaLivro = estante[livroId] || "todos";
 
     if (categoriaLivro === categoria) {
       livro.style.display = "flex";
@@ -428,7 +428,7 @@ function mostrarCategoria(categoria) {
 }
 
 function mostrarTodos() {
-  const todosLivros = document.querySelectorAll('.card-livro');
+  let todosLivros = document.querySelectorAll('.card-livro');
   todosLivros.forEach((livro) => livro.style.display = "flex");
 }
 
@@ -440,11 +440,11 @@ if(btnEditarEstante) {
   btnEditarEstante.addEventListener("click", () => {
     modoEdicao = !modoEdicao;
 
-    const livros = document.querySelectorAll(".card-livro");
-    const btn = document.getElementById("editarEstanteBtn");
+    let livros = document.querySelectorAll(".card-livro");
+    let btn = document.getElementById("editarEstanteBtn");
 
     livros.forEach((livro) => {
-      const overlay = livro.querySelector(".overlay-sinopse");
+      let overlay = livro.querySelector(".overlay-sinopse");
 
       // Ativar modo edição
       if (modoEdicao) {
@@ -453,7 +453,7 @@ if(btnEditarEstante) {
 
         // Evita duplicar select
         if (!livro.querySelector(".categoriaSelect")) {
-          const select = document.createElement("select");
+          let select = document.createElement("select");
           select.className = "categoriaSelect";
           select.innerHTML = `
             <option value="todos">Todos</option>
@@ -463,12 +463,12 @@ if(btnEditarEstante) {
           `;
 
           // Carrega categoria salva
-          const estante = JSON.parse(localStorage.getItem("estanteLivros")) || {};
-          const livroId = livro.dataset.id;
+          let estante = JSON.parse(localStorage.getItem("estanteLivros")) || {};
+          let livroId = livro.dataset.id;
           if (estante[livroId]) select.value = estante[livroId];
 
           select.addEventListener("change", () => {
-            const novaCategoria = select.value;
+            let novaCategoria = select.value;
             estante[livroId] = novaCategoria;
             localStorage.setItem("estanteLivros", JSON.stringify(estante));
           });
@@ -480,7 +480,7 @@ if(btnEditarEstante) {
         if (overlay) overlay.style.pointerEvents = "auto";
         livro.classList.remove("modo-edicao");
 
-        const select = livro.querySelector(".categoriaSelect");
+        let select = livro.querySelector(".categoriaSelect");
         if (select) select.remove();
 
       }
@@ -491,15 +491,15 @@ if(btnEditarEstante) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const livroSelect = document.getElementById("livroSelecionado");
-  const form = document.getElementById("form");
+  let livroSelect = document.getElementById("livroSelecionado");
+  let form = document.getElementById("form");
 
   // Carrega livros do localStorage
-  const livrosEstante = JSON.parse(localStorage.getItem("livrosEstante")) || {};
+  let livrosEstante = JSON.parse(localStorage.getItem("livrosEstante")) || {};
 
   // Preenche o select com os livros
   for (let id in livrosEstante) {
-    const opt = document.createElement("option");
+    let opt = document.createElement("option");
     opt.value = id;
       if(livrosEstante[id].titulo != "Duna" && livrosEstante[id].titulo != "1984" && livrosEstante[id].titulo != "Harry Potter e a Pedra Filosofal"){
         opt.textContent = livrosEstante[id].titulo + " — " + livrosEstante[id].autor;
@@ -511,20 +511,20 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const grupoNome = document.getElementById("nomeGrupo").value.trim();
-    const descricao = document.getElementById("descricao").value.trim();
-    const genero = document.getElementById("genero").value;
-    const visibilidade = document.getElementById("visibilidade").value;
-    const livroId = livroSelect.value;
+    let grupoNome = document.getElementById("nomeGrupo").value.trim();
+    let descricao = document.getElementById("descricao").value.trim();
+    let genero = document.getElementById("genero").value;
+    let visibilidade = document.getElementById("visibilidade").value;
+    let livroId = livroSelect.value;
 
     if (!grupoNome || !livroId || !descricao || !genero || !visibilidade) {
       alert("Preencha todos os campos!");
       return;
     }
 
-    const livroSelecionado = livrosEstante[livroId];
+    let livroSelecionado = livrosEstante[livroId];
 
-    const grupo = {
+    let grupo = {
       nomeGrupo: grupoNome,
       nomeLivro: livroSelecionado.titulo,
       autor: livroSelecionado.autor,
@@ -534,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
       visibilidade
     };
 
-    const grupos = JSON.parse(localStorage.getItem("gruposCriados")) || [];
+    let grupos = JSON.parse(localStorage.getItem("gruposCriados")) || [];
     grupos.push(grupo);
     localStorage.setItem("gruposCriados", JSON.stringify(grupos));
 
@@ -545,14 +545,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("botaoForumToggle").addEventListener("click", () => {
-  const aside = document.getElementById("forumCapitulos");
+  let aside = document.getElementById("forumCapitulos");
   aside.classList.toggle("ativo");
 });
 
 // Preencher o select de capítulos
-const capituloSelect = document.getElementById("capituloSelect");
+let capituloSelect = document.getElementById("capituloSelect");
 for (let i = 1; i <= 20; i++) {
-  const opt = document.createElement("option");
+  let opt = document.createElement("option");
   opt.value = i;
   opt.textContent = "Capítulo " + i;
   capituloSelect.appendChild(opt);
@@ -566,7 +566,7 @@ capituloSelect.addEventListener("change", () => {
 
 // Enviar nova mensagem
 document.getElementById("enviarMensagemCapitulo").addEventListener("click", () => {
-  const texto = document.getElementById("mensagemCapitulo").value.trim();
+  let texto = document.getElementById("mensagemCapitulo").value.trim();
 
   console.log("Clicado. Texto:", texto);
   console.log("Capítulo selecionado:", capituloSelecionado);
@@ -577,9 +577,9 @@ document.getElementById("enviarMensagemCapitulo").addEventListener("click", () =
     return;
   }
 
-  const usuario = JSON.parse(localStorage.getItem("usuarioLogado"))?.nomeUsuario || "Anônimo";
-  const chave = `forumCapitulo_${nomeGrupoAtual}_cap${capituloSelecionado}`;
-  const mensagens = JSON.parse(localStorage.getItem(chave)) || [];
+  let usuario = JSON.parse(localStorage.getItem("usuarioLogado"))?.nomeUsuario || "Anônimo";
+  let chave = `forumCapitulo_${nomeGrupoAtual}_cap${capituloSelecionado}`;
+  let mensagens = JSON.parse(localStorage.getItem(chave)) || [];
 
   mensagens.push({ autor: usuario, texto });
   localStorage.setItem(chave, JSON.stringify(mensagens));
@@ -593,15 +593,16 @@ document.getElementById("enviarMensagemCapitulo").addEventListener("click", () =
 function carregarMensagensCapitulo() {
   if (!capituloSelecionado || !nomeGrupoAtual) return;
 
-  const chave = `forumCapitulo_${nomeGrupoAtual}_cap${capituloSelecionado}`;
-  const mensagens = JSON.parse(localStorage.getItem(chave)) || [];
+  let chave = `forumCapitulo_${nomeGrupoAtual}_cap${capituloSelecionado}`;
+  let mensagens = JSON.parse(localStorage.getItem(chave)) || [];
 
-  const ul = document.querySelector("#mensagensCapitulo ul");
+  let ul = document.querySelector("#mensagensCapitulo ul");
   ul.innerHTML = "";
 
   mensagens.forEach(msg => {
-    const li = document.createElement("li");
+    let li = document.createElement("li");
     li.innerHTML = `<strong>${msg.autor}:</strong> ${msg.texto}`;
     ul.appendChild(li);
   });
 }
+

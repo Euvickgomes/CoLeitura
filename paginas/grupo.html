@@ -165,12 +165,12 @@
     <script>
       //script novo pois dentro do script.js nao estava funcionando
       document.addEventListener("DOMContentLoaded", () => {
-        const containerHero = document.querySelector(".hero");
+        let containerHero = document.querySelector(".hero");
 
-        const gruposSalvos = JSON.parse(localStorage.getItem("gruposCriados")) || [];
+        let gruposSalvos = JSON.parse(localStorage.getItem("gruposCriados")) || [];
 
         gruposSalvos.forEach(grupo => {
-          const btn = document.createElement("button");
+          let btn = document.createElement("button");
           btn.textContent = `📚 Grupo: ${grupo.nomeGrupo}`;
           btn.onclick = () => entrarGrupo(grupo.nomeGrupo);
           containerHero.appendChild(btn);
@@ -178,7 +178,7 @@
       });
 
       function entrarGrupo(nomeGrupo) {
-        const grupo = (JSON.parse(localStorage.getItem("gruposCriados")) || []).find(g => g.nomeGrupo === nomeGrupo);
+        let grupo = (JSON.parse(localStorage.getItem("gruposCriados")) || []).find(g => g.nomeGrupo === nomeGrupo);
         
         if (!grupo) {
           alert("Grupo não encontrado!");
@@ -194,13 +194,13 @@
         document.getElementById("iframePDF").src = grupo.pdf;
 
         // Oculta os botões de grupo
-        const botoes = document.querySelectorAll(".hero > button");
+        let botoes = document.querySelectorAll(".hero > button");
         botoes.forEach(btn => btn.style.display = "none");
       }
 
       function voltarParaInicio() {
         document.getElementById("juliaCasoUso").style.display = "none";
-        const botoes = document.querySelectorAll(".hero > button");
+        let botoes = document.querySelectorAll(".hero > button");
         botoes.forEach(btn => btn.style.display = "inline-block");
       }
     </script>

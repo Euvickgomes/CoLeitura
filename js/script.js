@@ -218,57 +218,57 @@ let books = {
   "O Alquimista": {
     titulo: "O Alquimista",
     autor: "Paulo Coelho", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "O Jogador": {
     titulo: "O Jogador",
     autor: "Fiódor Dostoiévski", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "O Lobo Das Estepes": {
     titulo: "O Lobo Das Estepes",
     autor: "Hermann Hesse", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "Memórias Póstumas de Brás Cubas": {
     titulo: "Memórias Póstumas de Brás Cubas",
     autor: "Machado de Assis", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "Harry Potter": {
     titulo: "Harry Potter e a Pedra Filosofal",
     autor: "J.K. Rowling", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "1984": {
     titulo: "1984",
     autor: "George Orwell", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "Duna": {
     titulo: "Duna",
     autor: "Frank Herbert", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "O Pequeno Príncipe": {
     titulo: "O Pequeno Príncipe",
     autor: "Antoine de Saint-Exupéry", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "A Sombra do Vento": {
     titulo: "A Sombra do Vento",
     autor: "Carlos Ruiz Zafón", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "O Velho e o Mar": {
     titulo: "O Velho e o Mar",
     autor: "Ernest Hemingway", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   },
   "O Talismã": {
     titulo: "O Talismã",
     autor: "Stephen King e Peter Straub", 
-    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=SEU_ID_AQUI&export=download"
+    pdf: "https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?id=1peoVqJMDI9KK92tw5en-vvkO-Xxp1uxC&export=download"
   }
 }
 
